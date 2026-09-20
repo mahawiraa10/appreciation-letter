@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>an Appreciation Letter</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='18' fill='%235d4037'/%3E%3Cellipse cx='50' cy='26' rx='11' ry='19' fill='%23ffb300'/%3E%3Cellipse cx='50' cy='74' rx='11' ry='19' fill='%23ffb300'/%3E%3Cellipse cx='26' cy='50' rx='19' ry='11' fill='%23ffb300'/%3E%3Cellipse cx='74' cy='50' rx='19' ry='11' fill='%23ffb300'/%3E%3Cellipse cx='33' cy='33' rx='11' ry='19' fill='%23ffb300' transform='rotate(45 33 33)'/%3E%3Cellipse cx='67' cy='33' rx='11' ry='19' fill='%23ffb300' transform='rotate(-45 67 33)'/%3E%3Cellipse cx='33' cy='67' rx='11' ry='19' fill='%23ffb300' transform='rotate(-45 33 67)'/%3E%3Cellipse cx='67' cy='67' rx='11' ry='19' fill='%23ffb300' transform='rotate(45 67 67)'/%3E%3C/svg%3E">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    body {
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(to bottom, #fff9f0 0%, #ffe8d6 50%, #f0dcc0 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* ── WARM EFFECT ── */
+    .snowball {
+      position: absolute;
+      top: -10px;
+      background: radial-gradient(circle, #fff3cd 0%, #ffcc80 100%);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 15;
+      animation: fall linear infinite;
+      box-shadow: 0 0 8px 2px rgba(255, 193, 7, 0.4);
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.9; }
+      100% { transform: translateY(105vh) rotate(720deg); opacity: 0; }
+    }
+    
+    .sparkle {
+      position: absolute;
+      width: 4px; height: 4px;
+      background: white;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 15;
+      animation: twinkle 2s ease-in-out infinite;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.2; transform: scale(0.5); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+    
+    /* ── GARDEN ── */
+    .garden {
+      position: fixed;
+      bottom: 0; left: 0;
+      width: 100%; height: 25vh;
+      display: flex; justify-content: space-around; align-items: flex-end;
+      padding: 0 3vw; z-index: 10; pointer-events: none;
+    }
+    .sunflower { filter: drop-shadow(0 4px 10px rgba(0,0,0,0.1)); animation: sway 4s ease-in-out infinite alternate; }
+    .sunflower:nth-child(1) { animation-delay: 0s; }
+    .sunflower:nth-child(2) { animation-delay: -0.8s; }
+    .sunflower:nth-child(3) { animation-delay: -1.6s; }
+    .sunflower:nth-child(4) { animation-delay: -2.4s; }
+    .sunflower:nth-child(5) { animation-delay: -3.2s; }
+    @keyframes sway { from { transform: rotate(-4deg); } to { transform: rotate(4deg); } }
+    
+    /* ── BOOK ── */
+    .book-container {
+      position: relative;
+      width: min(85vw, 320px);
+      height: min(60vh, 440px);
+      perspective: 1500px;
+      z-index: 20;
+      margin-bottom: 10vh;
+    }
+    
+    .book {
+      width: 100%; height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+    }
+    
+    .page {
+      position: absolute;
+      width: 100%; height: 100%;
+      top: 0; left: 0;
+      background: #fff;
+      border-radius: 10px 20px 20px 10px;
+      border: 1px solid #e0e0e0;
+      border-left: 5px solid #d4a574;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      padding: 25px;
+      display: flex; flex-direction: column; justify-content: space-between;
+      text-align: center;
+      transform-origin: left center;
+      transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+      backface-visibility: hidden;
+    }
+    
+    .page.flipped { transform: rotateY(-180deg); }
+    
+    .page h2 { color: #8b5e3c; margin-bottom: 10px; font-size: 1.4rem; }
+    .page p { color: #555; line-height: 1.4; font-size: 0.85rem; }
+    .page-num { position: absolute; top: 10px; right: 15px; font-size: 0.7rem; color: #999; }
+    
+    .btn-group { display: flex; gap: 8px; justify-content: center; margin-top: 15px; }
+    .btn {
+      padding: 8px 18px; border-radius: 20px; border: 1px solid #d4a574;
+      background: #fff8f0; color: #7a4a2e; cursor: pointer; font-weight: 600;
+    }
+    .btn:hover { background: #f0e0d0; }
+  </style>
+</head>
+<body>
+  <div class="book-container">
+    <div class="book">
+      <!-- Page 4 (Bottom) -->
+      <div class="page" id="p4" style="z-index: 1;">
+        <span class="page-num">#4</span>
+        <div>
+          <p>Yah kertasnya abis, tapi gapapa. Setidaknya kamu tau kalau diri kamu itu berharga, makasih yaa udah mau baca sampai ke halaman ini. Maaf kalau tulisannya acak-acakan
+            karena aku juga ga pernah untuk nulis hal kaya gini.
+          </p>
+          <p style="font-weight: 400; color: #8b5e3c; margin-top: 12px;">May you live on and embrace what it feels to be human!</p>
+          <p style="font-weight: 600; color: #8b5e3c; margin-top: 12px;">— namanya siapa ya?</p>
+        </div>
+        <button class="btn" onclick="resetBook()">Back to Start</button>
+      </div>
+
+      <!-- Page 3 -->
+      <div class="page" id="p3" style="z-index: 2;">
+        <span class="page-num">#3</span>
+        <div>
+          <h2></h2>
+          <p>Semoga segala kebaikan yang kamu lakuin itu bisa berbalik ke diri kamu sendiri, kalau kamu lagi ngelewatin hari yang berat. Semoga pundak kamu selalu kuat untuk
+            menahan semua beban itu dan sekiranya kamu perlu bantuan, kamu bisa cerita ke aku sama kaya aku cerita ke kamu. Makasih ya udah percaya sama aku walaupun aku suka ngejokes di waktu yang ngga terduga wkwkwk.
+            Aku doain kita bakal sukses di jalan kita masing-masing dan semoga di waktu itu tiba, kita ngga lupa satu sama lain ya!
+          </p>
+        </div>
+        <div class="btn-group">
+          <button class="btn" onclick="unflipPage(3)">← Back</button>
+          <button class="btn" onclick="flipPage(3)">Next →</button>
+        </div>
+      </div>
+
+      <!-- Page 2 -->
+      <div class="page" id="p2" style="z-index: 3;">
+        <span class="page-num">#2</span>
+        <div>
+          <h2>Terima Kasih! ✨</h2>
+          <p>Aku bukan orang yang bisa buat ngomong ini secara langsung sebenernya, jadi itu alasan kenapa aku buat surat ini. 
+            Aku mau bilang terima kasih udah mau duduk bareng aku di saat situasinya ngga enak, sedikit yang kamu tau. 
+            Aku ngerasa beruntung untuk ketemu orang seperti kamu dan aku yakin orang lain juga berpikiran hal yang sama.</p>
+        </div>
+        <div class="btn-group">
+          <button class="btn" onclick="unflipPage(2)">← Back</button>
+          <button class="btn" onclick="flipPage(2)">Next →</button>
+        </div>
+      </div>
+
+      <!-- Page 1 (Top Cover) -->
+      <div class="page" id="p1" style="z-index: 4;">
+        <span class="page-num">#1</span>
+        <div>
+          <h2>Hai!</h2>
+          <p>Aku buat surat apresiasi untuk kamu, kalau ada waktu. Boleh banget buat dibaca yaa!</p>
+        </div>
+        <button class="btn" onclick="flipPage(1)">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sunflower Garden - RESTORATED -->
+  <div class="garden">
+    <!-- Flower 1 -->
+    <svg class="sunflower" width="80" height="160" viewBox="0 0 100 200">
+      <defs>
+        <linearGradient id="petal1" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#ffd700"/>
+          <stop offset="100%" stop-color="#ffb347"/>
+        </linearGradient>
+        <radialGradient id="center1" cx="50%" cy="40%">
+          <stop offset="0%" stop-color="#5d4037"/>
+          <stop offset="100%" stop-color="#3e2723"/>
+        </radialGradient>
+      </defs>
+      <path d="M50 200 Q50 140 50 90" stroke="#8d6e4c" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <ellipse cx="38" cy="155" rx="16" ry="7" fill="#c9a86c" transform="rotate(-25 38 155)"/>
+      <ellipse cx="62" cy="140" rx="14" ry="6" fill="#c9a86c" transform="rotate(20 62 140)"/>
+      <g transform="translate(50, 75)">
+        <ellipse cx="0" cy="-26" rx="9" ry="20" fill="url(#petal1)"/>
+        <ellipse cx="20" cy="-14" rx="9" ry="20" fill="url(#petal1)" transform="rotate(40)"/>
+        <ellipse cx="24" cy="10" rx="9" ry="20" fill="url(#petal1)" transform="rotate(80)"/>
+        <ellipse cx="14" cy="24" rx="9" ry="20" fill="url(#petal1)" transform="rotate(120)"/>
+        <ellipse cx="-6" cy="28" rx="9" ry="20" fill="url(#petal1)" transform="rotate(160)"/>
+        <ellipse cx="-26" cy="18" rx="9" ry="20" fill="url(#petal1)" transform="rotate(200)"/>
+        <ellipse cx="-28" cy="-6" rx="9" ry="20" fill="url(#petal1)" transform="rotate(240)"/>
+        <ellipse cx="-18" cy="-24" rx="9" ry="20" fill="url(#petal1)" transform="rotate(280)"/>
+        <ellipse cx="2" cy="-28" rx="9" ry="20" fill="url(#petal1)" transform="rotate(320)"/>
+        <circle r="18" fill="url(#center1)"/>
+        <circle r="12" fill="#4e342e" opacity="0.5"/>
+      </g>
+    </svg>
+    
+    <!-- Flower 2 -->
+    <svg class="sunflower" width="70" height="140" viewBox="0 0 100 200">
+      <defs>
+        <linearGradient id="petal2" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#ffecb3"/>
+          <stop offset="100%" stop-color="#ffc107"/>
+        </linearGradient>
+        <radialGradient id="center2" cx="50%" cy="40%">
+          <stop offset="0%" stop-color="#6d4c41"/>
+          <stop offset="100%" stop-color="#4e342e"/>
+        </radialGradient>
+      </defs>
+      <path d="M50 200 Q50 140 50 90" stroke="#8d6e4c" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <ellipse cx="36" cy="150" rx="15" ry="6" fill="#c9a86c" transform="rotate(-30 36 150)"/>
+      <ellipse cx="64" cy="135" rx="13" ry="6" fill="#c9a86c" transform="rotate(25 64 135)"/>
+      <g transform="translate(50, 75)">
+        <ellipse cx="0" cy="-24" rx="8" ry="18" fill="url(#petal2)"/>
+        <ellipse cx="18" cy="-12" rx="8" ry="18" fill="url(#petal2)" transform="rotate(45)"/>
+        <ellipse cx="22" cy="8" rx="8" ry="18" fill="url(#petal2)" transform="rotate(90)"/>
+        <ellipse cx="12" cy="22" rx="8" ry="18" fill="url(#petal2)" transform="rotate(135)"/>
+        <ellipse cx="-8" cy="26" rx="8" ry="18" fill="url(#petal2)" transform="rotate(180)"/>
+        <ellipse cx="-24" cy="16" rx="8" ry="18" fill="url(#petal2)" transform="rotate(225)"/>
+        <ellipse cx="-26" cy="-4" rx="8" ry="18" fill="url(#petal2)" transform="rotate(270)"/>
+        <ellipse cx="-16" cy="-22" rx="8" ry="18" fill="url(#petal2)" transform="rotate(315)"/>
+        <circle r="16" fill="url(#center2)"/>
+        <circle r="10" fill="#3e2723" opacity="0.4"/>
+      </g>
+    </svg>
+    
+    <!-- Flower 3 -->
+    <svg class="sunflower" width="90" height="180" viewBox="0 0 100 200">
+      <defs>
+        <linearGradient id="petal3" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#ffdd57"/>
+          <stop offset="100%" stop-color="#ffaa00"/>
+        </linearGradient>
+        <radialGradient id="center3" cx="50%" cy="40%">
+          <stop offset="0%" stop-color="#5d4037"/>
+          <stop offset="100%" stop-color="#3e2723"/>
+        </radialGradient>
+      </defs>
+      <path d="M50 200 Q50 140 50 90" stroke="#8d6e4c" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <ellipse cx="35" cy="158" rx="17" ry="7" fill="#c9a86c" transform="rotate(-28 35 158)"/>
+      <ellipse cx="65" cy="142" rx="15" ry="6" fill="#c9a86c" transform="rotate(22 65 142)"/>
+      <ellipse cx="32" cy="128" rx="14" ry="6" fill="#c9a86c" transform="rotate(-20 32 128)"/>
+      <g transform="translate(50, 75)">
+        <ellipse cx="0" cy="-27" rx="9" ry="21" fill="url(#petal3)"/>
+        <ellipse cx="21" cy="-14" rx="9" ry="21" fill="url(#petal3)" transform="rotate(36)"/>
+        <ellipse cx="25" cy="8" rx="9" ry="21" fill="url(#petal3)" transform="rotate(72)"/>
+        <ellipse cx="15" cy="25" rx="9" ry="21" fill="url(#petal3)" transform="rotate(108)"/>
+        <ellipse cx="-5" cy="29" rx="9" ry="21" fill="url(#petal3)" transform="rotate(144)"/>
+        <ellipse cx="-27" cy="20" rx="9" ry="21" fill="url(#petal3)" transform="rotate(180)"/>
+        <ellipse cx="-30" cy="2" rx="9" ry="21" fill="url(#petal3)" transform="rotate(216)"/>
+        <ellipse cx="-20" cy="-20" rx="9" ry="21" fill="url(#petal3)" transform="rotate(252)"/>
+        <ellipse cx="-2" cy="-28" rx="9" ry="21" fill="url(#petal3)" transform="rotate(288)"/>
+        <ellipse cx="18" cy="-24" rx="9" ry="21" fill="url(#petal3)" transform="rotate(324)"/>
+        <circle r="19" fill="url(#center3)"/>
+        <circle r="13" fill="#4e342e" opacity="0.45"/>
+      </g>
+    </svg>
+    
+    <!-- Flower 4 -->
+    <svg class="sunflower" width="75" height="150" viewBox="0 0 100 200">
+      <defs>
+        <linearGradient id="petal4" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#ffe082"/>
+          <stop offset="100%" stop-color="#ffa000"/>
+        </linearGradient>
+        <radialGradient id="center4" cx="50%" cy="40%">
+          <stop offset="0%" stop-color="#6d4c41"/>
+          <stop offset="100%" stop-color="#4e342e"/>
+        </radialGradient>
+      </defs>
+      <path d="M50 200 Q50 140 50 90" stroke="#8d6e4c" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <ellipse cx="37" cy="152" rx="15" ry="6" fill="#c9a86c" transform="rotate(-26 37 152)"/>
+      <ellipse cx="63" cy="138" rx="14" ry="6" fill="#c9a86c" transform="rotate(24 63 138)"/>
+      <g transform="translate(50, 75)">
+        <ellipse cx="0" cy="-25" rx="8" ry="19" fill="url(#petal4)"/>
+        <ellipse cx="19" cy="-13" rx="8" ry="19" fill="url(#petal4)" transform="rotate(42)"/>
+        <ellipse cx="23" cy="7" rx="8" ry="19" fill="url(#petal4)" transform="rotate(84)"/>
+        <ellipse cx="13" cy="23" rx="8" ry="19" fill="url(#petal4)" transform="rotate(126)"/>
+        <ellipse cx="-7" cy="27" rx="8" ry="19" fill="url(#petal4)" transform="rotate(168)"/>
+        <ellipse cx="-25" cy="18" rx="8" ry="19" fill="url(#petal4)" transform="rotate(210)"/>
+        <ellipse cx="-28" cy="-3" rx="8" ry="19" fill="url(#petal4)" transform="rotate(252)"/>
+        <ellipse cx="-18" cy="-23" rx="8" ry="19" fill="url(#petal4)" transform="rotate(294)"/>
+        <ellipse cx="0" cy="-28" rx="8" ry="19" fill="url(#petal4)" transform="rotate(336)"/>
+        <circle r="17" fill="url(#center4)"/>
+        <circle r="11" fill="#3e2723" opacity="0.4"/>
+      </g>
+    </svg>
+    
+    <!-- Flower 5 -->
+    <svg class="sunflower" width="85" height="170" viewBox="0 0 100 200">
+      <defs>
+        <linearGradient id="petal5" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%" stop-color="#ffecb3"/>
+          <stop offset="100%" stop-color="#ff8f00"/>
+        </linearGradient>
+        <radialGradient id="center5" cx="50%" cy="40%">
+          <stop offset="0%" stop-color="#5d4037"/>
+          <stop offset="100%" stop-color="#3e2723"/>
+        </radialGradient>
+      </defs>
+      <path d="M50 200 Q50 140 50 90" stroke="#8d6e4c" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <ellipse cx="36" cy="154" rx="16" ry="7" fill="#c9a86c" transform="rotate(-27 36 154)"/>
+      <ellipse cx="64" cy="138" rx="14" ry="6" fill="#c9a86c" transform="rotate(23 64 138)"/>
+      <ellipse cx="33" cy="126" rx="13" ry="5" fill="#c9a86c" transform="rotate(-18 33 126)"/>
+      <g transform="translate(50, 75)">
+        <ellipse cx="0" cy="-26" rx="9" ry="20" fill="url(#petal5)"/>
+        <ellipse cx="20" cy="-13" rx="9" ry="20" fill="url(#petal5)" transform="rotate(40)"/>
+        <ellipse cx="24" cy="8" rx="9" ry="20" fill="url(#petal5)" transform="rotate(80)"/>
+        <ellipse cx="14" cy="24" rx="9" ry="20" fill="url(#petal5)" transform="rotate(120)"/>
+        <ellipse cx="-6" cy="28" rx="9" ry="20" fill="url(#petal5)" transform="rotate(160)"/>
+        <ellipse cx="-26" cy="18" rx="9" ry="20" fill="url(#petal5)" transform="rotate(200)"/>
+        <ellipse cx="-29" cy="-2" rx="9" ry="20" fill="url(#petal5)" transform="rotate(240)"/>
+        <ellipse cx="-19" cy="-22" rx="9" ry="20" fill="url(#petal5)" transform="rotate(280)"/>
+        <ellipse cx="0" cy="-28" rx="9" ry="20" fill="url(#petal5)" transform="rotate(320)"/>
+        <circle r="18" fill="url(#center5)"/>
+        <circle r="12" fill="#4e342e" opacity="0.45"/>
+      </g>
+    </svg>
+  </div>
+
+  <script>
+    // ── EFFECTS ──
+    function createSnowball() {
+      const s = document.createElement('div');
+      s.className = 'snowball';
+      s.style.left = Math.random() * 100 + '%';
+      s.style.width = s.style.height = (5 + Math.random() * 8) + 'px';
+      s.style.animationDuration = (5 + Math.random() * 5) + 's';
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 10000);
+    }
+    setInterval(createSnowball, 500);
+    for (let i = 0; i < 15; i++) setTimeout(createSnowball, i * 200);
+    
+    // ── LOGIC ──
+    function flipPage(n) {
+      document.getElementById('p' + n).classList.add('flipped');
+    }
+    function unflipPage(n) {
+      document.getElementById('p' + n).classList.remove('flipped');
+    }
+    function resetBook() {
+      for (let i = 1; i <= 3; i++) {
+        document.getElementById('p' + i).classList.remove('flipped');
+      }
+    }
+  </script>
+</body>
+</html>
