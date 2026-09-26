@@ -109,15 +109,106 @@
     .btn {
       padding: 8px 18px; border-radius: 20px; border: 1px solid #d4a574;
       background: #fff8f0; color: #7a4a2e; cursor: pointer; font-weight: 600;
+      transition: transform 0.2s;
     }
-    .btn:hover { background: #f0e0d0; }
+    .btn:hover { background: #f0e0d0; transform: scale(1.05); }
+
+    /* ── BEAR WARM HUG ── */
+    .bear-box {
+      margin: 10px auto 0;
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      user-select: none;
+    }
+    .bear-svg {
+      width: 80px;
+      height: 80px;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      filter: drop-shadow(0 4px 6px rgba(139, 94, 60, 0.2));
+    }
+    .bear-box:hover .bear-svg {
+      transform: scale(1.1) rotate(5deg);
+    }
+    .bear-box:active .bear-svg {
+      transform: scale(0.95);
+    }
+    .hug-bubble {
+      position: absolute;
+      bottom: 85px;
+      left: 50%;
+      transform: translateX(-50%) scale(0);
+      background: #fff3e0;
+      border: 1.5px solid #d4a574;
+      color: #7a4a2e;
+      padding: 6px 14px;
+      border-radius: 15px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .hug-bubble.show {
+      transform: translateX(-50%) scale(1);
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
   <div class="book-container">
     <div class="book">
-      <!-- Page 4 (Bottom) -->
-      <div class="page" id="p4" style="z-index: 1;">
+      <!-- Page 5 (Page Beruang / Hugs) -->
+      <div class="page" id="p5" style="z-index: 1;">
+        <span class="page-num">#5</span>
+        <div>
+          <h2>A Big Warm Hug! 🧸</h2>
+          <p>Kalau lagi capek atau butuh semangat tambahan, pencet beruangnya yaa!</p>
+          
+          <div class="bear-box" onclick="giveHug()">
+            <div class="hug-bubble" id="hugBubble">Warm Hugs for You! 🧸💛</div>
+            <svg class="bear-svg" viewBox="0 0 100 100">
+              <!-- Ears -->
+              <circle cx="30" cy="30" r="12" fill="#8d5b4c"/>
+              <circle cx="30" cy="30" r="6" fill="#f4c2c2"/>
+              <circle cx="70" cy="30" r="12" fill="#8d5b4c"/>
+              <circle cx="70" cy="30" r="6" fill="#f4c2c2"/>
+              <!-- Head -->
+              <circle cx="50" cy="48" r="28" fill="#a06857"/>
+              <!-- Snout -->
+              <ellipse cx="50" cy="54" rx="12" ry="9" fill="#f5e6d3"/>
+              <!-- Eyes -->
+              <circle cx="40" cy="44" r="3" fill="#2c1a14"/>
+              <circle cx="60" cy="44" r="3" fill="#2c1a14"/>
+              <circle cx="41" cy="43" r="1" fill="#fff"/>
+              <circle cx="61" cy="43" r="1" fill="#fff"/>
+              <!-- Nose -->
+              <ellipse cx="50" cy="51" rx="4" ry="3" fill="#2c1a14"/>
+              <!-- Smile -->
+              <path d="M46 56 Q50 59 54 56" stroke="#2c1a14" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+              <!-- Cheeks -->
+              <circle cx="34" cy="52" r="4" fill="#f48fb1" opacity="0.6"/>
+              <circle cx="66" cy="52" r="4" fill="#f48fb1" opacity="0.6"/>
+              <!-- Body -->
+              <path d="M30 72 Q50 65 70 72 L75 95 Q50 100 25 95 Z" fill="#8d5b4c"/>
+              <!-- Paws hugging heart -->
+              <path d="M25 78 Q38 85 45 80" stroke="#a06857" stroke-width="6" fill="none" stroke-linecap="round"/>
+              <path d="M75 78 Q62 85 55 80" stroke="#a06857" stroke-width="6" fill="none" stroke-linecap="round"/>
+              <!-- Heart -->
+              <path d="M50 78 C45 70 36 75 50 87 C64 75 55 70 50 78 Z" fill="#e57373"/>
+            </svg>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button class="btn" onclick="unflipPage(4)">← Back</button>
+          <button class="btn" onclick="resetBook()">Back to Start</button>
+        </div>
+      </div>
+
+      <!-- Page 4 -->
+      <div class="page" id="p4" style="z-index: 2;">
         <span class="page-num">#4</span>
         <div>
           <p>Yah kertasnya abis, tapi gapapa. Setidaknya kamu tau kalau diri kamu itu berharga, makasih yaa udah mau baca sampai ke halaman ini. Maaf kalau tulisannya acak-acakan
@@ -126,11 +217,14 @@
           <p style="font-weight: 400; color: #8b5e3c; margin-top: 12px;">May you live on and embrace what it feels to be human!</p>
           <p style="font-weight: 600; color: #8b5e3c; margin-top: 12px;">— namanya siapa ya?</p>
         </div>
-        <button class="btn" onclick="resetBook()">Back to Start</button>
+        <div class="btn-group">
+          <button class="btn" onclick="unflipPage(3)">← Back</button>
+          <button class="btn" onclick="flipPage(4)">Next →</button>
+        </div>
       </div>
 
       <!-- Page 3 -->
-      <div class="page" id="p3" style="z-index: 2;">
+      <div class="page" id="p3" style="z-index: 3;">
         <span class="page-num">#3</span>
         <div>
           <h2></h2>
@@ -140,13 +234,13 @@
           </p>
         </div>
         <div class="btn-group">
-          <button class="btn" onclick="unflipPage(3)">← Back</button>
+          <button class="btn" onclick="unflipPage(2)">← Back</button>
           <button class="btn" onclick="flipPage(3)">Next →</button>
         </div>
       </div>
 
       <!-- Page 2 -->
-      <div class="page" id="p2" style="z-index: 3;">
+      <div class="page" id="p2" style="z-index: 4;">
         <span class="page-num">#2</span>
         <div>
           <h2>Terima Kasih! ✨</h2>
@@ -155,13 +249,13 @@
             Aku ngerasa beruntung untuk ketemu orang seperti kamu dan aku yakin orang lain juga berpikiran hal yang sama.</p>
         </div>
         <div class="btn-group">
-          <button class="btn" onclick="unflipPage(2)">← Back</button>
+          <button class="btn" onclick="unflipPage(1)">← Back</button>
           <button class="btn" onclick="flipPage(2)">Next →</button>
         </div>
       </div>
 
       <!-- Page 1 (Top Cover) -->
-      <div class="page" id="p1" style="z-index: 4;">
+      <div class="page" id="p1" style="z-index: 5;">
         <span class="page-num">#1</span>
         <div>
           <h2>Hai!</h2>
@@ -172,7 +266,7 @@
     </div>
   </div>
 
-  <!-- Sunflower Garden - RESTORATED -->
+  <!-- Sunflower Garden -->
   <div class="garden">
     <!-- Flower 1 -->
     <svg class="sunflower" width="80" height="160" viewBox="0 0 100 200">
@@ -349,9 +443,17 @@
       document.getElementById('p' + n).classList.remove('flipped');
     }
     function resetBook() {
-      for (let i = 1; i <= 3; i++) {
+      for (let i = 1; i <= 4; i++) {
         document.getElementById('p' + i).classList.remove('flipped');
       }
+    }
+
+    function giveHug() {
+      const bubble = document.getElementById('hugBubble');
+      bubble.classList.add('show');
+      setTimeout(() => {
+        bubble.classList.remove('show');
+      }, 2500);
     }
   </script>
 </body>
