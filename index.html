@@ -130,13 +130,19 @@
     /* Responsive bubble for mobile */
     @media (max-width: 480px) {
       .hug-bubble {
-        font-size: 0.68rem;
-        padding: 6px 12px;
+        font-size: 0.7rem;
+        padding: 8px 12px;
         bottom: 95px;
-        max-width: 220px;
+        max-width: 200px;
         white-space: normal;
         text-align: center;
         line-height: 1.35;
+        width: auto;
+        left: 50%;
+        transform: translateX(-50%) scale(0);
+      }
+      .hug-bubble.show {
+        transform: translateX(-50%) scale(1);
       }
     }
     .bear-box:hover .bear-svg {
@@ -181,7 +187,7 @@
           </p>
           
           <div class="bear-box" onclick="giveHug()">
-            <div class="hug-bubble" id="hugBubble">I'll give you my warmest hug! 🧸💛</div>
+            <div class="hug-bubble" id="hugBubble">Come to me when your world feels heavy, i'll give you my warmest hug! 🧸💛</div>
             <svg class="bear-svg" viewBox="0 0 100 100">
               <!-- Ears -->
               <circle cx="30" cy="30" r="12" fill="#8d5b4c"/>
