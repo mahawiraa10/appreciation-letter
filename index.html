@@ -127,24 +127,6 @@
       transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       filter: drop-shadow(0 4px 6px rgba(139, 94, 60, 0.2));
     }
-    /* Responsive bubble for mobile - pindah ke bawah beruang biar ga manjang ke atas */
-    @media (max-width: 480px) {
-      .hug-bubble {
-        font-size: 0.7rem;
-        padding: 8px 12px;
-        bottom: -45px;
-        max-width: 200px;
-        white-space: normal;
-        text-align: center;
-        line-height: 1.35;
-        width: 160px;
-        left: 50%;
-        transform: translateX(-50%) scale(0);
-      }
-      .hug-bubble.show {
-        transform: translateX(-50%) scale(1);
-      }
-    }
     .bear-box:hover .bear-svg {
       transform: scale(1.1) rotate(5deg);
     }
@@ -166,12 +148,34 @@
       white-space: nowrap;
       pointer-events: none;
       opacity: 0;
+      z-index: 999;
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     .hug-bubble.show {
       transform: translateX(-50%) scale(1);
       opacity: 1;
+    }
+
+    /* Responsive bubble for mobile - pindah ke bawah beruang biar ga manjang ke atas */
+    /* Ditaruh SETELAH .hug-bubble biasa biar tidak ke-override (urutan CSS penting) */
+    @media (max-width: 480px) {
+      .hug-bubble {
+        font-size: 0.7rem;
+        padding: 8px 12px;
+        bottom: 85px;
+        max-width: 200px;
+        white-space: normal;
+        text-align: center;
+        line-height: 1.35;
+        width: 160px;
+        left: 50%;
+        z-index: 999;
+        transform: translateX(-50%) scale(0);
+      }
+      .hug-bubble.show {
+        transform: translateX(-50%) scale(1);
+      }
     }
   </style>
 </head>
